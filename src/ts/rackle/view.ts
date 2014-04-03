@@ -1,5 +1,5 @@
-/// <reference path="../../../DefinitelyTyped/jquery.d.ts" />
-/// <reference path="../../../DefinitelyTyped/handlebars.d.ts" />
+/// <reference path="../../../typings/jquery/jquery.d.ts" />
+/// <reference path="../../../typings/handlebars/handlebars.d.ts" />
 
 module RACKLE {
 
