@@ -62,7 +62,8 @@ module.exports = (grunt)->
           atBegin: true
 
     clean:
-      typescript: ['src/**/*.js', 'build/js/**/*.js', 'build/hbs/**/*.hbs']
+      build: ['build/js/**/*.js', 'build/hbs/**/*.hbs']
+      typescript: ['src/**/*.js']
       css: ['build/css/**/*.css']
       html: ['build/**/*.html']
 
@@ -84,5 +85,5 @@ module.exports = (grunt)->
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-copy')
 
-  grunt.registerTask('default', ['clean', 'typescript', 'concat', 'uglify', 'copy', 'compass'])
-  grunt.registerTask('preview', ['clean', 'typescript', 'concat', 'uglify', 'copy', 'compass', 'connect'])
+  grunt.registerTask('default', ['clean', 'typescript', 'clean:typescript', 'concat', 'uglify', 'copy', 'compass'])
+  grunt.registerTask('preview', ['clean', 'typescript', 'clean:typescript', 'concat', 'uglify', 'copy', 'compass', 'connect'])

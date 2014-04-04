@@ -1,6 +1,6 @@
 http_path = "/"
 css_dir = "build/css"
-sass_dir = "scss"
+sass_dir = "src/scss"
 images_dir = "build/imgs"
 javascripts_dir = "build/js"
 
