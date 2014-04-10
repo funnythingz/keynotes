@@ -21,19 +21,23 @@ module.exports = (grunt)->
     copy:
       hbs:
         files: [{
-          src: ['src/hbs/**/*.hbs']
+          expand: true
+          cwd: 'src/hbs'
+          src: ['**/*.hbs']
           dest: 'build/hbs/'
         }]
 
       html:
         files: [{
-          src: ['src/html/**/*.html']
+          expand: true
+          cwd: 'src/html'
+          src: ['**/*.html']
           dest: 'build/'
         }]
 
     typescript:
       base:
-        src: ['src/**/*.ts', 'tests/**/*.ts']
+        src: ['src/ts/**/*.ts', 'tests/**/*.ts']
         options:
           sourceMap: false
 
@@ -63,7 +67,7 @@ module.exports = (grunt)->
 
     clean:
       build: ['build/js/**/*.js', 'build/hbs/**/*.hbs']
-      typescript: ['src/**/*.js']
+      typescript: ['src/ts/**/*.js']
       css: ['build/css/**/*.css']
       html: ['build/**/*.html']
 
@@ -85,5 +89,5 @@ module.exports = (grunt)->
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-copy')
 
-  grunt.registerTask('default', ['clean', 'typescript', 'clean:typescript', 'concat', 'uglify', 'copy', 'compass'])
-  grunt.registerTask('preview', ['clean', 'typescript', 'clean:typescript', 'concat', 'uglify', 'copy', 'compass', 'connect'])
+  grunt.registerTask('default', ['clean', 'typescript', 'concat', 'uglify', 'clean:typescript', 'copy', 'compass'])
+  grunt.registerTask('preview', ['clean', 'typescript', 'concat', 'uglify', 'clean:typescript', 'copy', 'compass', 'connect'])

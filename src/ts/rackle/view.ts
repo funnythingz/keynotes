@@ -3,7 +3,7 @@
 
 module RACKLE {
 
-    interface IViewCreateOptions {
+    export interface IViewCreateOptions {
         $el?: JQuery;
         tagName?: string;
         id?: string;
@@ -12,6 +12,16 @@ module RACKLE {
     }
 
     export class View {
+
+        tagName: string = 'div';
+        id: string;
+        className: string;
+        attributes: Object = {};
+        $el: JQuery;
+
+        constructor(viewCreateOptions: IViewCreateOptions = {}) {
+        }
+
     }
 
 }
