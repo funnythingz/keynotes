@@ -1,4 +1,17 @@
 module.exports = (grunt)->
+
+  grunt.loadNpmTasks('grunt-contrib-compass')
+  grunt.loadNpmTasks('grunt-typescript')
+  grunt.loadNpmTasks('grunt-contrib-concat')
+  grunt.loadNpmTasks('grunt-contrib-uglify')
+  grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-contrib-connect')
+  grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt-contrib-copy')
+
+  grunt.registerTask('default', ['clean', 'typescript', 'concat', 'uglify', 'clean:typescript', 'copy', 'compass'])
+  grunt.registerTask('server', ['connect'])
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json')
 
@@ -13,7 +26,7 @@ module.exports = (grunt)->
 
       apps:
         src: ['src/ts/apps/**/*.js']
-        dest: 'build/js/apps.js'
+        dest: 'build/apps.js'
 
       options:
         separator: ';'
@@ -66,7 +79,7 @@ module.exports = (grunt)->
           atBegin: true
 
     clean:
-      build: ['build/js/**/*.js', 'build/hbs/**/*.hbs']
+      build: ['build/hbs/**/*.hbs', 'build/js/**/*.js']
       typescript: ['src/ts/**/*.js']
       css: ['build/css/**/*.css']
       html: ['build/**/*.html']
@@ -79,15 +92,3 @@ module.exports = (grunt)->
           keepalive: true
 
   })
-
-  grunt.loadNpmTasks('grunt-contrib-compass')
-  grunt.loadNpmTasks('grunt-typescript')
-  grunt.loadNpmTasks('grunt-contrib-concat')
-  grunt.loadNpmTasks('grunt-contrib-uglify')
-  grunt.loadNpmTasks('grunt-contrib-watch')
-  grunt.loadNpmTasks('grunt-contrib-connect')
-  grunt.loadNpmTasks('grunt-contrib-clean')
-  grunt.loadNpmTasks('grunt-contrib-copy')
-
-  grunt.registerTask('default', ['clean', 'typescript', 'concat', 'uglify', 'clean:typescript', 'copy', 'compass'])
-  grunt.registerTask('preview', ['clean', 'typescript', 'concat', 'uglify', 'clean:typescript', 'copy', 'compass', 'connect'])
