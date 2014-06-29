@@ -23,7 +23,8 @@ module.exports = function (grunt) {
       dist: {
         options: {
           sassDir: 'src/styles',
-          cssDir: 'dist/styles'
+          cssDir: 'dist/styles',
+          imagesDir: 'src/images'
         }
       }
     },

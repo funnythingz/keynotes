@@ -3,7 +3,10 @@ nav {
   z-index: 100;
   height: 100%;
   top: 0;
-  background: $mainTheme;
+  background-color: $mainTheme;
+  background-image: inline-image('funnythingz.png');
+  background-repeat: no-repeat;
+  background-position: right bottom;
   width: 250px;
 
   a {
@@ -16,6 +19,7 @@ nav {
   }
 
   @include breakpoint(big-phone) {
+    background-image: none;
     overflow: hidden;
     width: 100%;
     height: auto;
@@ -67,7 +71,6 @@ $mobileNavLineHeight: 2.2em;
 
 .nav-links {
   list-style: none;
-  background: $mainTheme;
   padding-left: 40px;
   font-size: 1.4em;
 
